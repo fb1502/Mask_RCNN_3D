@@ -80,32 +80,32 @@ class_names = [
 def apply_mask(image, mask):
 
     shape = gray_image.shape
-	bar_mask = np.full(shape, False, dtype=bool)
+    bar_mask = np.full(shape, False, dtype=bool)
 
-	position_1 = int(shape[1]*(.5-bar_distance/100))
-	position_2 = int(shape[1]*(.5+bar_distance/100))
-	bar_mask[:,position_1:position_1+bar_width] = True
-	bar_mask[:,position_2-bar_width:position_2] = True
+    position_1 = int(shape[1]*(.5-bar_distance/100))
+    position_2 = int(shape[1]*(.5+bar_distance/100))
+    bar_mask[:,position_1:position_1+bar_width] = True
+    bar_mask[:,position_2-bar_width:position_2] = True
 
-	mask = mask | (~bar_mask)
-	background_white = np.full(shape, 255, dtype=int)
+    mask = mask | (~bar_mask)
+    background_white = np.full(shape, 255, dtype=int)
 
-	image[:, :, 0] = np.where(
-		mask == 0,
-		background_white[:, :],
-		image[:, :, 0]
-	)
-	image[:, :, 1] = np.where(
+    image[:, :, 0] = np.where(
+        mask == 0,
+        background_white[:, :],
+        image[:, :, 0]
+    )
+    image[:, :, 1] = np.where(
         mask == 0,
         background_white[:, :],
         image[:, :, 1]
     )
-	image[:, :, 2] = np.where(
+    image[:, :, 2] = np.where(
         mask == 0,
         background_white[:, :],
         image[:, :, 2]
     )
-	return image
+    return image
 
 def display_instances(image, boxes, masks, ids, names, scores):
 
