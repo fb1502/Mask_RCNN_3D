@@ -1,6 +1,6 @@
 # USAGE
-# python mask_rcnn.py 3d_image.py -i images/persons.jpe -o images/persons_3d.jpe
-# python mask_rcnn.py 3d_image.py -i images/persons.jpe -o images/persons_3d.jpe -w 30 -d 20
+# python 3d_image.py -i images/persons.jpe -o images/persons_3d.jpe
+# python 3d_image.py -i images/persons.jpe -o images/persons_3d.jpe -w 30 -d 20
 
 # import the necessary packages
 import cv2

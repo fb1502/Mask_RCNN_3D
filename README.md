@@ -22,7 +22,7 @@ Here are some demo images:
 
 Before start, download the pre-trained COCO weights (mask_rcnn_coco.h5) file from the [released page](https://github.com/matterport/Mask_RCNN/releases) and put it in the main folder.
 
-Generating 3D effect image:
+Generating 3D (look-like) image:
 
 - `python 3d_image.py -i images/persons.jpg -o images/persons_3d.jpg`
 
