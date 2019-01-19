@@ -14,10 +14,13 @@ Here are some demo images:
 | :--: | :--: | :--: | :--: |
 |![](images/family.jpg)|![](images/family_3d.jpg)|![](images/persons.jpg)|![](images/persons_3d.jpg)|
 
+|**Original Video 1**|**New Video 1**|
+| :--: | :--: |
+|![](images/baby.gif)|![](images/baby_3d.gif)|
 
 ## Usage
 
-Before start, please download the mask_rcnn_coco.h5 file from the [released page](https://github.com/matterport/Mask_RCNN/releases) and put it in the main folder.
+Before start, download the pre-trained COCO weights (mask_rcnn_coco.h5) file from the [released page](https://github.com/matterport/Mask_RCNN/releases) and put it in the main folder.
 
 Generating 3D effect image:
 
