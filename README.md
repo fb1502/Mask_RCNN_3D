@@ -30,7 +30,7 @@ Generating 3D (look-like) image:
 
 Generating 3D (look-like) video:
 
-- `python 3d_image.py -i images/jetlee.mp4 -o images/output.avi`
+- `python 3d_video.py -i images/jetlee.mp4 -o images/output.avi`
 
 ## Acknowledgments
 
