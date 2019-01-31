@@ -28,6 +28,10 @@ Generating 3D (look-like) image:
 
 - `python 3d_image.py -i images/persons.jpg -o images/persons_3d.jpg -w 30 -d 20`
 
+Generating 3D (look-like) video:
+
+- `python 3d_image.py -i images/jetlee.mp4 -o images/output.avi`
+
 ## Acknowledgments
 
 This repository is based on [Mask-RCNN](https://github.com/matterport/Mask_RCNN) and [Mask-RCNN-Shiny](https://github.com/huuuuusy/Mask-RCNN-Shiny)
