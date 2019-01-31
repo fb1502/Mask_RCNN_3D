@@ -14,9 +14,9 @@ Here are some demo images:
 | :--: | :--: | :--: | :--: |
 |![](images/family.jpg)|![](images/family_3d.jpg)|![](images/persons.jpg)|![](images/persons_3d.jpg)|
 
-|**Original Video 1**|**New Video 1**|
-| :--: | :--: |
-|![](images/baby.gif)|![](images/baby_3d.gif)|
+|**Original Video 1**|**New Video 1**|**Original Video 2**|**New Video 2**|
+| :--: | :--: | :--: | :--: |
+|![](images/jetlee_01.gif)|![](images/jetlee_01_3d.gif)|![](images/jetlee_02.gif)|![](images/jetlee_02_3d.gif)|
 
 ## Usage
 
