@@ -62,12 +62,7 @@ class_names = [
     'teddy bear', 'hair drier', 'toothbrush'
 ]
 
-# This function is used to change the colorful background information to grayscale.
-# image[:,:,0] is the Blue channel,image[:,:,1] is the Green channel, image[:,:,2] is the Red channel
-# mask == 0 means that this pixel is not belong to the object.
-# np.where function means that if the pixel belong to background, change it to gray_image.
-# Since the gray_image is 2D, for each pixel in background, we should set 3 channels to the same value to keep the grayscale.
-
+# apply bar mask
 def apply_mask(image, mask):
 
     shape = video_shape
