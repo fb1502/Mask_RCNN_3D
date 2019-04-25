@@ -1,3 +1,6 @@
 .DS_Store
 .ipynb_checkpoints/
 mask_rcnn_coco.h5
+logs
+videos
+

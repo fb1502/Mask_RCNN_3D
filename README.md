@@ -30,7 +30,22 @@ Generating 3D (look-like) image:
 
 Generating 3D (look-like) video:
 
-- `python 3d_video.py -i images/jetlee.mp4 -o images/output.avi`
+- `python main.py -i images/jetlee.mp4 -o images/output.avi`
+
+All possible arguments are:
+
+```
+-i (--input): required, path to the input video file
+
+-o (--output): required, path to the output video file
+
+-w (--width): type=int, default=20, pixel width of the blank bar
+
+-d (--distance): type=int, choices=range(10,41), default = 15, percentage distance of the bar from the center
+
+-c (--color): choices=["white", "black"], default="white", color of the blank bar, can be set to either white or black
+
+```
 
 ## Acknowledgments
 
