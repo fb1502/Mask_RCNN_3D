@@ -22,7 +22,7 @@ Here are some demos:
 | :--: | :--: |
 |![](images/jetli_03.gif)|![](images/jetli_03_3d.gif)|
 
-For the full film clip, please click: [https://youtu.be/tMaxP6kiPRg](https://youtu.be/tMaxP6kiPRg) 
+For the full film clip, please click: [https://youtu.be/6NLvF_LcZ-4](https://youtu.be/6NLvF_LcZ-4)
 
 ## Usage
 
