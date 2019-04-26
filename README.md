@@ -18,9 +18,9 @@ Here are some demo images:
 | :--: | :--: | :--: | :--: |
 |![](images/jetlee_01.gif)|![](images/jetlee_01_3d.gif)|![](images/jetlee_02.gif)|![](images/jetlee_02_3d.gif)|
 
-## Extra samples
-
-Click [here](https://github.com/fb1502/Mask_RCNN_3D/blob/master/EXAMPLES.md) to view some extra samples.
+|**Original Video**|**New Video**|
+| :--: | :--: |
+|![](images/jetli_03.gif)|![](images/jetli_03_3d.gif)|
 
 ## Usage
 
