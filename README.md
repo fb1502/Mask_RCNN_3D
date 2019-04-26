@@ -20,7 +20,7 @@ Here are some demo images:
 
 ## Usage
 
-Before start, download the pre-trained COCO weights (mask_rcnn_coco.h5) file from the [released page](https://github.com/matterport/Mask_RCNN/releases) and put it in the main folder.
+Optional: download the pre-trained COCO weights (mask_rcnn_coco.h5) file from the [released page](https://github.com/matterport/Mask_RCNN/releases) and put it in the main folder. (If the weights file can not be found in the main folder, the program will automatically download it from github)
 
 Generating 3D (look-like) image:
 
@@ -41,9 +41,11 @@ All possible arguments are:
 
 -w (--width): type=int, default=20, pixel width of the blank bar
 
--d (--distance): type=int, choices=range(10,41), default = 15, percentage distance of the bar from the center
+-d (--distance): type=int, choices=[10..40], default = 15, percentage distance of the bar from the center
 
--c (--color): choices=["white", "black"], default="white", color of the blank bar, can be set to either white or black
+-c (--color): choices=["white", "black"], default="black", color of the blank bar, can be set to either white or black
+
+-t (--thickness): type=int, choices=[0..20], default = 10, thickness of the horizontal bars in the upper and lower parts of the screen
 
 ```
 

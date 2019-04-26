@@ -10,10 +10,11 @@ class MRCNN3d():
     """
     Encapsulates the Mask RCNN 3d model functionality.
     """
-    def __init__(self, input_file, output_file, bar_width, bar_distance, bar_color):
+    def __init__(self, input_file, output_file, bar_width=20, bar_distance=15, bar_color="black", thickness=10):
         self.bar_width = bar_width
         self.bar_distance = bar_distance
         self.bar_color = bar_color
+        self.thickness = thickness
         self.input_file = input_file
         self.output_file = output_file
         self.class_names = [
@@ -66,32 +67,31 @@ class MRCNN3d():
         shape = self.video_shape
         bar_mask = np.full(shape, False, dtype=bool)
 
-        position_1 = int(shape[1]*(.5-self.bar_distance/100))
-        position_2 = int(shape[1]*(.5+self.bar_distance/100))
+        # for the left and right vertical bars
+        position_1 = round(shape[1]*(.5-self.bar_distance/100))
+        position_2 = round(shape[1]*(.5+self.bar_distance/100))
         bar_mask[:,position_1:position_1+ self.bar_width] = True
         bar_mask[:,position_2-self.bar_width:position_2] = True
 
+        # for the upper and lower horizontal bars
+        bar_mask[0:round(shape[0]*(self.thickness/100)), :] = True
+        bar_mask[shape[0]-round(shape[0]*(self.thickness/100)):shape[0], :] = True
+
         mask = mask | (~bar_mask)
+
         if self.bar_color == "white":
             background_color = np.full(shape, 255, dtype=int)
         else:
             background_color = np.full(shape, 0, dtype=int)
 
-        image[:, :, 0] = np.where(
-            mask == 0,
-            background_color[:, :],
-            image[:, :, 0]
-        )
-        image[:, :, 1] = np.where(
-            mask == 0,
-            background_color[:, :],
-            image[:, :, 1]
-        )
-        image[:, :, 2] = np.where(
-            mask == 0,
-            background_color[:, :],
-            image[:, :, 2]
-        )
+        # for each channel 
+        for i in [0,1,2]:
+            image[:, :, i] = np.where(
+                mask == 0,
+                background_color[:, :],
+                image[:, :, i]
+            )
+
         return image
 
     # This function is used to show the object detection result in original image.
@@ -99,13 +99,6 @@ class MRCNN3d():
 
         # n_instances saves the amount of all objects
         n_instances = boxes.shape[0]
-
-        # print("there are n_instances in this picture:",n_instances)
-
-        # if not n_instances:
-        #     print('NO INSTANCES TO DISPLAY')
-        # else:
-        #     assert boxes.shape[0] == masks.shape[-1] == ids.shape[0]
 
         # initialize an empty mask
         mask = np.full(self.video_shape, False, dtype=bool)
@@ -132,7 +125,6 @@ class MRCNN3d():
     def convert(self):
         capture = cv2.VideoCapture(self.input_file)
 
-        # Recording Video
         fps = capture.get(cv2.CAP_PROP_FPS)
         total_frames = int(capture.get(cv2.CAP_PROP_FRAME_COUNT))
         width = int(capture.get(3))
