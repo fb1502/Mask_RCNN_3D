@@ -18,6 +18,10 @@ Here are some demo images:
 | :--: | :--: | :--: | :--: |
 |![](images/jetlee_01.gif)|![](images/jetlee_01_3d.gif)|![](images/jetlee_02.gif)|![](images/jetlee_02_3d.gif)|
 
+## Extra samples
+
+Click [here](https://github.com/fb1502/Mask_RCNN_3D/blob/master/EXAMPLES.md) to view some extra samples.
+
 ## Usage
 
 Optional: download the pre-trained COCO weights (mask_rcnn_coco.h5) file from the [released page](https://github.com/matterport/Mask_RCNN/releases) and put it in the main folder. (If the weights file can not be found in the main folder, the program will automatically download it from github)
