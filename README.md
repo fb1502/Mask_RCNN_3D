@@ -1,5 +1,7 @@
 # Mask-RCNN 3D
 
+* [中文版](./README_CN.md)
+
 ## Introduction
 
 |**3d gif 1**|**3d gif 2**|**3d gif 3**|
@@ -22,7 +24,7 @@ Here are some demos:
 | :--: | :--: |
 |![](images/jetli_03.gif)|![](images/jetli_03_3d.gif)|
 
-For the full film clip, please click: [https://youtu.be/6NLvF_LcZ-4](https://youtu.be/6NLvF_LcZ-4)
+* To view the full clip, please click: [https://youtu.be/6NLvF_LcZ-4](https://youtu.be/6NLvF_LcZ-4)
 
 ## Usage
 
