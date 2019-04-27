@@ -1,6 +1,7 @@
 # Mask-RCNN 3D
 
 * [English](./README.md)
+* [免费使用Google Colab的GPU进行视频处理](./README_colab.md)
 
 ## 缘起
 
