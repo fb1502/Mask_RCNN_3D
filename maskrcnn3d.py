@@ -6,6 +6,19 @@ from samples import coco
 from mrcnn import utils
 from mrcnn import model as modellib
 
+class InferenceConfig(coco.CocoConfig):
+    GPU_COUNT = 1
+
+    # Number of images to train with on each GPU. A 12GB GPU can typically
+    # handle 2 images of 1024x1024px.
+    # Adjust based on your GPU memory and image sizes. Use the highest
+    # number that your GPU can handle for best performance.
+    IMAGES_PER_GPU = 1
+
+    # calculate batch_size for GPU usage
+    def batch_size(self):
+        return InferenceConfig.GPU_COUNT*InferenceConfig.IMAGES_PER_GPU
+
 class MRCNN3d():
     """
     Encapsulates the Mask RCNN 3d model functionality.
@@ -40,19 +53,6 @@ class MRCNN3d():
         if not os.path.exists(self.COCO_MODEL_PATH):
             utils.download_trained_weights(self.COCO_MODEL_PATH)
 
-        class InferenceConfig(coco.CocoConfig):
-            GPU_COUNT = 1
-            
-            # Number of images to train with on each GPU. A 12GB GPU can typically
-            # handle 2 images of 1024x1024px.
-            # Adjust based on your GPU memory and image sizes. Use the highest
-            # number that your GPU can handle for best performance.
-            IMAGES_PER_GPU = 1
-
-            # calculate batch_size for GPU usage
-            def batch_size(self):
-                return InferenceConfig.GPU_COUNT*InferenceConfig.IMAGES_PER_GPU
-
         # Change the config info            
         self.config = InferenceConfig()
         self.batch_size = self.config.batch_size()
@@ -62,7 +62,7 @@ class MRCNN3d():
         self.model.load_weights(self.COCO_MODEL_PATH, by_name=True)
 
     # apply bar mask
-    def apply_mask(self, image, mask):
+    def _apply_mask(self, image, mask):
 
         shape = self.video_shape
         bar_mask = np.full(shape, False, dtype=bool)
@@ -95,7 +95,7 @@ class MRCNN3d():
         return image
 
     # This function is used to show the object detection result in original image.
-    def display_instances(self, image, boxes, masks, ids, names, scores):
+    def _display_instances(self, image, boxes, masks, ids, names, scores):
 
         # n_instances saves the amount of all objects
         n_instances = boxes.shape[0]
@@ -118,7 +118,7 @@ class MRCNN3d():
                 continue
 
         # apply mask for the image
-        image = self.apply_mask(image, mask)
+        image = self._apply_mask(image, mask)
             
         return image
 
@@ -147,7 +147,7 @@ class MRCNN3d():
 
             results = self.model.detect([frame], verbose=0)
             r = results[0]
-            frame = self.display_instances(
+            frame = self._display_instances(
                 frame, r['rois'], r['masks'], r['class_ids'], self.class_names, r['scores']
             )
             # Recording Video

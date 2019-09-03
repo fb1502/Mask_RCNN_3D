@@ -4,4 +4,5 @@ __pycache__/
 mask_rcnn_coco.h5
 logs
 videos
+*.pyc
 
