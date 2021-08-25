@@ -9,4 +9,4 @@ opencv-contrib-python==3.4.4.19
 Pillow==5.4.1
 scikit-image==0.14.2
 scipy==0.19.1
-tensorflow==1.8.0
+tensorflow==2.5.1
